@@ -1,0 +1,8 @@
+[
+    {
+        "command": "/Users/goltsmannn/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/src/main.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -Wall -DF_CPU=16000000L -DPLATFORMIO=60118 -DARDUINO_AVR_UNO -Iinclude -Isrc src/main.c",
+        "directory": "/Users/goltsmannn/Documents/coding/embedded/playground/baremetal-mcu-station",
+        "file": "src/main.c",
+        "output": ".pio/build/uno/src/main.o"
+    }
+]
