@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "*.html": "html",
-        "io.h": "c",
-        "stdint.h": "c",
-        "pin_management.h": "c",
-        "display.h": "c"
-    }
-}
