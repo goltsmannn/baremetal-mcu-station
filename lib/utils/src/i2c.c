@@ -9,7 +9,7 @@ void i2c_init(void) {
 }
 
 void i2c_start(void) {
-    DDRB |= (1 << (SDA_PIN - 8)); // Set SDA as output
+    set_pin_as_output(SDA_PIN);
 
     SDA_HIGH(); 
     SCL_HIGH(); //initial conditions
@@ -17,62 +17,62 @@ void i2c_start(void) {
     SDA_LOW(); // start emitted
     
     SCL_LOW();
-    SDA_HIGH();
-    SCL_HIGH(); // get ready for data transfer
+ // the transfer will assign next bit and then pulse clock
 }
 
-void i2c_stop(void) {
-    DDRB |= (1 << (SDA_PIN - 8)); // Set SDA as output
+void i2c_stop(void) { // expects SCL_LOW()
+    set_pin_as_output(SDA_PIN);
 
-    SCL_HIGH(); // initial conditions
+    SCL_HIGH(); // set clock high to distinguish from data
      
     SDA_HIGH(); // stop emitted
-    
-    PULSE();
 }
 
-void i2c_send_ack(void) {
-    DDRB |= (1 << (SDA_PIN - 8)); // Set SDA as output
+void i2c_send_ack(void) { // expects SCL_LOW()
+    set_pin_as_output(SDA_PIN);
 
-    SCL_HIGH(); // ensure clock is initially high
     SDA_LOW();  // pull SDA low to send ACK
-    DELAY_SHORT();
-    SCL_LOW();  // clock low to prepare for next byte
-    DELAY_SHORT();
-    SCL_HIGH(); // clock high to complete ACK
+    SCL_HIGH(); // clock high to complete ACK 
+    DELAY_SHORT(); // let device read ACK
+    SCL_LOW();  // release clock
 }
 
-void i2c_transfer_byte(uint8_t data) {
-    DDRB |= (1 << (SDA_PIN - 8)); // Set SDA as output
+void i2c_transfer_byte(uint8_t data) { // expects SCL_LOW()
+    set_pin_as_output(SDA_PIN);
 
-    SCL_HIGH(); // ensure clock is initially high
     for (int i = 0; i < 8; ++i) {
         if (data & (1 << i)) {
             SDA_HIGH();
         } else {
             SDA_LOW();
         }
-        SCL_LOW();
         DELAY_SHORT();
         SCL_HIGH();
         DELAY_SHORT();
+        SCL_LOW(); // leaves on low 
     }
 }
 
-uint8_t i2c_read_byte(void) { 
+uint8_t i2c_read_byte(void) {  // expects SCL_LOW(), since always after read_ack
     uint8_t data = 0x00;
 
-    for (int i = 0; i < 8; ++i) {
+    SCL_HIGH();
+
+    for (int i = 0; i < 7; ++i) {
         data |= (read_digital_pin(SDA_PIN) << i);
         PULSE();
     }
+    data |= (read_digital_pin(SDA_PIN) << 7); // last bit no pulse
+    SCL_LOW(); // leave clock low
     return data;
 }
 
 uint8_t i2c_read_ack(void) {
-    DDRB &= ~(1 << (SDA_PIN - 8)); // Set SDA as input 
-    SCL_HIGH(); // ensure clock is initially high 
+    // we are starting with low so device has time to set-ack
+    DELAY_SHORT(); // device is expeceted to have set clock
+
+    SCL_HIGH(); // locking clock high to read ack bit
     uint8_t data = read_digital_pin(SDA_PIN); 
-    PULSE();
+    SCL_LOW(); // release clock 
     return data;
 }

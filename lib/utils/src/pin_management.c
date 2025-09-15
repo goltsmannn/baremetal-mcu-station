@@ -29,6 +29,14 @@ inline void reset_digital_pins() {
     PORTB = 0x00;
 }
 
+void set_pin_as_output(uint8_t pin_number) {
+    if (pin_number >= 8 && pin_number <= 13) {
+        DDRB |= (1 << (pin_number - 8));
+    } else if (pin_number <= 7) {
+        DDRD |= (1 << pin_number);
+    }
+}
+
 void read_digital_pin(uint8_t pin_number) {
     if (pin_number >= 8 && pin_number <= 13) {
         DDRB &= ~(1 << (pin_number - 8)); // Set as input
