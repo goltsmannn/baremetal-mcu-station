@@ -37,7 +37,7 @@ void set_pin_as_output(uint8_t pin_number) {
     }
 }
 
-void read_digital_pin(uint8_t pin_number) {
+uint8_t read_digital_pin(uint8_t pin_number) {
     if (pin_number >= 8 && pin_number <= 13) {
         DDRB &= ~(1 << (pin_number - 8)); // Set as input
         return (PINB & (1 << (pin_number - 8))) ? HIGH : LOW;

@@ -1,7 +1,37 @@
 [
     {
-        "command": "/Users/goltsmannn/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/src/main.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -Wall -DF_CPU=16000000L -DPLATFORMIO=60118 -DARDUINO_AVR_UNO -Iinclude -Isrc src/main.c",
-        "directory": "/Users/goltsmannn/Documents/coding/embedded/playground/baremetal-mcu-station",
+        "command": "/Users/Student_User/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/libc9b/utils/adc_management.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -Wall -mmcu=atmega328p -DF_CPU=16000000L -DPLATFORMIO=60118 -DARDUINO_AVR_UNO -Ilib/utils/include -Ilib/utils/src lib/utils/src/adc_management.c",
+        "directory": "/Users/Student_User/baremetal-mcu-station",
+        "file": "lib/utils/src/adc_management.c",
+        "output": ".pio/build/uno/libc9b/utils/adc_management.o"
+    },
+    {
+        "command": "/Users/Student_User/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/libc9b/utils/fat16.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -Wall -mmcu=atmega328p -DF_CPU=16000000L -DPLATFORMIO=60118 -DARDUINO_AVR_UNO -Ilib/utils/include -Ilib/utils/src lib/utils/src/fat16.c",
+        "directory": "/Users/Student_User/baremetal-mcu-station",
+        "file": "lib/utils/src/fat16.c",
+        "output": ".pio/build/uno/libc9b/utils/fat16.o"
+    },
+    {
+        "command": "/Users/Student_User/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/libc9b/utils/i2c.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -Wall -mmcu=atmega328p -DF_CPU=16000000L -DPLATFORMIO=60118 -DARDUINO_AVR_UNO -Ilib/utils/include -Ilib/utils/src lib/utils/src/i2c.c",
+        "directory": "/Users/Student_User/baremetal-mcu-station",
+        "file": "lib/utils/src/i2c.c",
+        "output": ".pio/build/uno/libc9b/utils/i2c.o"
+    },
+    {
+        "command": "/Users/Student_User/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/libc9b/utils/pin_management.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -Wall -mmcu=atmega328p -DF_CPU=16000000L -DPLATFORMIO=60118 -DARDUINO_AVR_UNO -Ilib/utils/include -Ilib/utils/src lib/utils/src/pin_management.c",
+        "directory": "/Users/Student_User/baremetal-mcu-station",
+        "file": "lib/utils/src/pin_management.c",
+        "output": ".pio/build/uno/libc9b/utils/pin_management.o"
+    },
+    {
+        "command": "/Users/Student_User/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/lib3e7/seven_segment_display/display.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -Wall -mmcu=atmega328p -DF_CPU=16000000L -DPLATFORMIO=60118 -DARDUINO_AVR_UNO -Ilib/seven_segment_display/include -Ilib/seven_segment_display/src -Ilib/utils/include -Ilib/utils/src lib/seven_segment_display/src/display.c",
+        "directory": "/Users/Student_User/baremetal-mcu-station",
+        "file": "lib/seven_segment_display/src/display.c",
+        "output": ".pio/build/uno/lib3e7/seven_segment_display/display.o"
+    },
+    {
+        "command": "/Users/Student_User/.platformio/packages/toolchain-atmelavr/bin/avr-gcc -o .pio/build/uno/src/main.o -c -std=gnu11 -fno-fat-lto-objects -mmcu=atmega328p -Os -Wall -ffunction-sections -fdata-sections -flto -Wall -mmcu=atmega328p -DF_CPU=16000000L -DPLATFORMIO=60118 -DARDUINO_AVR_UNO -Iinclude -Isrc -Ilib/seven_segment_display/include -Ilib/seven_segment_display/src -Ilib/utils/include -Ilib/utils/src src/main.c",
+        "directory": "/Users/Student_User/baremetal-mcu-station",
         "file": "src/main.c",
         "output": ".pio/build/uno/src/main.o"
     }

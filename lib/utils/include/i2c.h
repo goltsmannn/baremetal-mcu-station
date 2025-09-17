@@ -4,8 +4,8 @@
 #include <stdint.h>
 #include <avr/io.h>
 
-#define SCL_PIN 12
-#define SDA_PIN 13
+#define SCL_PIN 11
+#define SDA_PIN 12
 #define TARGET_ADDRESS 0b1001000 // AD0 to GROUND
 #define TARGET_READ (TARGET_ADDRESS << 1) | 1 // w is active-low
 #define TARGET_WRITE (TARGET_ADDRESS << 1) | 0
