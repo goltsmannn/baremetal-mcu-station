@@ -3,12 +3,27 @@
 
 #include <stdint.h>
 #include <avr/io.h>
+#include <avr/interrupt.h>
+#include "circular_buffer.h"
 
 #define UART_BAUD_RATE 115200
 #define CLOCK_FREQUENCY 16000000UL
 #define UART_PARITY_ACTIVE 0
 #define UART_STOP_BITS_NUMBER 1
+#define UART_READ_FAILED 2
+#define UART_READ_SUCCESSFUL 3
+#define UART_WRITE_FAILED 4
+#define UART_WRITE_SUCCESSFUL 5
 
+extern volatile uint8_t uart_read_flag;
+extern volatile uint8_t uart_write_flag;
+
+
+circular_buffer RX_BUF;  
+circular_buffer TX_BUF;
 
 void uart_init();
+
+void uart_send(uint8_t value);
+uint8_t uart_read();
 #endif // UART_H
