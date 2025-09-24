@@ -15,12 +15,15 @@
 #define UART_WRITE_FAILED 4
 #define UART_WRITE_SUCCESSFUL 5
 
-extern volatile uint8_t uart_read_flag;
-extern volatile uint8_t uart_write_flag;
 
 
-circular_buffer RX_BUF;  
-circular_buffer TX_BUF;
+typedef struct uart_buffer {
+    circular_buffer circ_buf;
+    volatile uint8_t uart_flag;  
+} uart_buffer;
+
+extern uart_buffer RX_BUF;  
+extern uart_buffer TX_BUF;
 
 void uart_init();
 

@@ -8,7 +8,6 @@
 void init(void) {
     i2c_init();
     uart_init();
-    sei();
 }
 
 int main(void) {
@@ -27,7 +26,7 @@ int main(void) {
         // }
 
         b = uart_read();
-        if (uart_read_flag == UART_READ_SUCCESSFUL) {
+        if (RX_BUF.uart_flag == UART_READ_SUCCESSFUL) {
             if (b > 0 && b < 10) {
                 draw_digit(b);
             }

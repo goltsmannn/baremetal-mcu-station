@@ -8,7 +8,7 @@ void drive_pins_from_bitstr(uint16_t pins_data) { // driving pins from binary st
     }
 }
 
-void drive_digital_pin(uint16_t pin_number, uint8_t value) {
+void drive_digital_pin(uint8_t pin_number, uint8_t value) {
     if (pin_number >= 8 && pin_number <= 13) {
         DDRB |= (1 << (pin_number - 8));
         if (value)
