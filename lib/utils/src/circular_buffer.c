@@ -22,3 +22,7 @@ uint8_t read_from_buffer(circular_buffer* circ_buf) {
     circ_buf->tail = (circ_buf->tail + 1) % CIRCULAR_BUFFER_SIZE;
     return value;
 }
+
+uint8_t circbuf_available(circular_buffer* circ_buf) {
+    return (circ_buf->head != circ_buf->tail) ? 1 : 0;
+}

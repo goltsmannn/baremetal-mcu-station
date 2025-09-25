@@ -1,8 +1,10 @@
 #include "display.h"
 #include "pin_management.h"
+#include "uart.h"
 
 
-extern const uint16_t display_mappings[] = {
+
+const uint16_t display_mappings[] = {
     SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F, // 0
     SEG_B | SEG_C,                                 // 1
     SEG_A | SEG_B | SEG_D | SEG_E | SEG_G,         // 2
@@ -16,8 +18,10 @@ extern const uint16_t display_mappings[] = {
 };
 
 void draw_digit(uint8_t digit) {
-    if (digit < 0 || digit > 9) {
+
+    if (digit > 9) {
         return;
     }
+
     drive_pins_from_bitstr(display_mappings[digit]);
 }

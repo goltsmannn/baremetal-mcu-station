@@ -6,7 +6,7 @@
 #include <avr/interrupt.h>
 #include "circular_buffer.h"
 
-#define UART_BAUD_RATE 115200
+#define UART_BAUD_RATE 9600
 #define CLOCK_FREQUENCY 16000000UL
 #define UART_PARITY_ACTIVE 0
 #define UART_STOP_BITS_NUMBER 1
