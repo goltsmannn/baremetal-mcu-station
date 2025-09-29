@@ -7,7 +7,7 @@
 #include "circular_buffer.h"
 
 #define UART_BAUD_RATE 9600
-#define CLOCK_FREQUENCY 16000000UL
+#define CLOCK_FREQUENCY 1000000UL
 #define UART_PARITY_ACTIVE 0
 #define UART_STOP_BITS_NUMBER 1
 #define UART_READ_FAILED 2
@@ -28,5 +28,9 @@ extern uart_buffer TX_BUF;
 void uart_init();
 
 void uart_send(uint8_t value);
+
 uint8_t uart_read();
+
+void uart_send_string(const char* str);
+
 #endif // UART_H

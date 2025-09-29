@@ -44,7 +44,7 @@ void uart_init() {
 
     UCSR0B |= (1 << RXCIE0) | (1 << UDRIE0); // enable interrupts
 
-    sei(); // enable global interrupts
+    // sei(); // enable global interrupts
 }
 
 void uart_send(uint8_t value) {
@@ -70,6 +70,13 @@ uint8_t uart_read() {
     // draw_digit(1);
     RX_BUF.uart_flag = UART_READ_SUCCESSFUL;
     return ans;
+}
+
+void uart_send_string(const char* str) {
+    while (*str) {
+        uart_send(*str);
+        str++;
+    }
 }
 
 
